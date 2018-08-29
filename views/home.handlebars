@@ -1,0 +1,10 @@
+<h1>WELCOME TO MY GIF SEARCH</h1>
+<form action="/">
+  <input type="text" name="term">
+  <button type="submit">Search</button>
+</form>
+<div class="container">
+  {{#each gifs}}
+    <img src="{{this.images.fixed_height.url}}">
+  {{/each}}
+</div>
