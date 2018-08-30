@@ -15,11 +15,6 @@ app.set('view engine', 'handlebars');
 
 // ROUTES
 // req means request, res means response
-// app.get('/', function (req, res) {
-//   console.log(req.query);
-//   res.render('home');
-// });
-
 app.get('/hello-gif', function (req, res) {
   var gifUrl = 'http://media2.giphy.com/media/gYBVM1igrlzH2/giphy.gif'
   res.render('hello-gif', {gifUrl: gifUrl})
@@ -39,7 +34,12 @@ app.get('/', function (req, res) {
   console.log(req.query.term)
   var queryString = req.query.term;
   // searches giphy using the wrapper
-  giphy.search(req.query.term, function (err, response) {
-      res.render('home', {gifs: response.data})
-    });
+  if (typeof queryString === 'string') {
+    giphy.search(req.query.term, function (err, response) {
+        res.render('home', {gifs: response.data})
+      });
+    } else {
+      // I made it not get random gifs on the home page for the sake of my poor computer
+      res.render('home');
+    }
 })
