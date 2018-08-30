@@ -7,3 +7,5 @@ For Braus' backend web class.
 - Searches Giphy for gifs
 - Looks like something from 2002
 - Flashing rainbow header
+- Festive background pattern!!
+- Infinite cats
